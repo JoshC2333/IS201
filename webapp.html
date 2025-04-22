@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LeBron Riddle Generator</title>
+  <style>
+    body {
+      background-color: #1c1c1c;
+      color: #f5f5f5;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    #riddle-box {
+      background-color: #2e2e2e;
+      padding: 30px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #ffa500;
+      color: black;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffcc66;
+    }
+
+    #answer {
+      margin-top: 20px;
+      color: #90ee90;
+    }
+
+    a {
+      color: #00bcd4;
+      display: block;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏀 LeBron's Riddle Challenge</h1>
+
+  <div id="riddle-box">
+    <p id="riddle">Click below to get a riddle!</p>
+    <p id="answer" style="display:none;"></p>
+  </div>
+
+  <button onclick="showRiddle()">New Riddle</button>
+  <button onclick="revealAnswer()">Show Answer</button>
+
+  <a href="lebron.html">← Back to LeBron Page</a>
+
+  <script>
+    const riddles = [
+      {
+        question: "I break records but never sweat. I'm all over the court but never play. What am I?",
+        answer: "LeBron James' highlight reel."
+      },
+      {
+        question: "What has two hoops, five players, and fans on the edge of their seats?",
+        answer: "A Lakers game with LeBron on the floor."
+      },
+      {
+        question: "I go up, but I never come down. What am I?",
+        answer: "LeBron’s career points total!"
+      },
+      {
+        question: "I have a net but I don’t catch fish. What am I?",
+        answer: "A basketball hoop."
+      },
+      {
+        question: "What’s orange, bounces, and fears LeBron’s slam dunks?",
+        answer: "A basketball."
+      }
+    ];
+
+    let currentRiddle = {};
+
+    function showRiddle() {
+      const randomIndex = Math.floor(Math.random() * riddles.length);
+      currentRiddle = riddles[randomIndex];
+      document.getElementById("riddle").textContent = currentRiddle.question;
+      document.getElementById("answer").style.display = "none";
+      document.getElementById("answer").textContent = currentRiddle.answer;
+    }
+
+    function revealAnswer() {
+      document.getElementById("answer").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
